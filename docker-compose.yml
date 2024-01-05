@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  ee.domain:
+    labels:
+      shipyard.route: '/api'
+    container_name: ee.domain
+    image: ${DOCKER_REGISTRY-}ee-domain
+    build:
+      context: .
+      dockerfile: EphemeralEnvironments.Domain/Dockerfile
+    networks:
+      - ee_net
+    expose: 
+      - 6051
+    ports: 
+      - 6051:80
+
+networks:
+  ee_net:
+    external: true
