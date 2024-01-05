@@ -3,7 +3,7 @@ version: '3.9'
 services:
   ee.domain:
     labels:
-      shipyard.route: '/api'
+      shipyard.route: '/'
     container_name: ee.domain
     image: ${DOCKER_REGISTRY-}ee-domain
     build:
